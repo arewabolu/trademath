@@ -1,5 +1,4 @@
-module mygoML
-
+module  github.com/arewabolu/trademath
 go 1.19
 
 require (
