@@ -65,6 +65,20 @@ func lowBound(x []float64) float64 {
 	return max(x...)
 }
 
+func MA(x []float64, window int) []float64 {
+	avgs := make([]float64, 0)
+	j := window //choose window? 2,3,5,7 game window
+	for i := 0; i <= len(x)-window; i++ {
+		mn := stat.Mean(x[i:j], nil)
+		avgs = append(avgs, mn)
+		if j == len(x) && i == len(x)-window {
+			break
+		}
+		j++
+	}
+	return avgs
+}
+
 func MACD(x []float64, xs int) float64 {
 	MACD := EMA(x[:xs]) - EMA(x)
 	return MACD
