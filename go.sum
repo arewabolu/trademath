@@ -1,0 +1,10 @@
+github.com/arewabolu/csvmanager v0.0.7 h1:zRP7zhrYgtjGMeGn7Y4cJ/93bCJ8zaqkRwc7q0f+qbI=
+github.com/arewabolu/csvmanager v0.0.7/go.mod h1:18qfn8wQNAlV99RwDCLqtZs0d8H1/FDu4rrPjyA2VOQ=
+github.com/arewabolu/csvmanager v1.0.0 h1:clqgYnQFJ2KpASFko0Y7hISoIpXah5lZ0xVWGeWVXQI=
+github.com/arewabolu/csvmanager v1.0.0/go.mod h1:18qfn8wQNAlV99RwDCLqtZs0d8H1/FDu4rrPjyA2VOQ=
+golang.org/x/exp v0.0.0-20230113213754-f9f960f08ad4 h1:CNkDRtCj8otM5CFz5jYvbr8ioXX8flVsLfDWEj0M5kk=
+golang.org/x/exp v0.0.0-20230113213754-f9f960f08ad4/go.mod h1:CxIveKay+FTh1D0yPZemJVgC/95VzuuOLq5Qi4xnoYc=
+golang.org/x/net v0.5.0 h1:GyT4nK/YDHSqa1c4753ouYCDajOYKTja9Xb/OHtgvSw=
+golang.org/x/net v0.5.0/go.mod h1:DivGGAXEgPSlEBzxGzZI+ZLohi+xUj054jfeKui00ws=
+gonum.org/v1/gonum v0.12.0 h1:xKuo6hzt+gMav00meVPUlXwSdoEJP46BR+wdxQEFK2o=
+gonum.org/v1/gonum v0.12.0/go.mod h1:73TDxJfAAHeA8Mk9mf8NlIppyhQNo5GLTcYeqgo2lvY=
