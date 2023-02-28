@@ -11,23 +11,19 @@ import (
 
 type Iterator func(start int, end int, data []float64) []float64
 
-func averageTrueRange(high, low, prevclose float64) float64 {
+// formula for average true range indicator
+func AverageTrueRange(high, low, prevclose float64) float64 {
 	return max((high - low), (low - prevclose), (high - prevclose))
 }
 
-func exPostSqdRet(R []float64) float64 {
-	return stat.StdDev(R, nil)
+func ExPostSqdRet(returns []float64) float64 {
+	return stat.Variance(returns, nil)
 }
 
-func absRet(R []float64) float64 {
-	diff := make([]float64, 0)
-	meanRet := stat.Mean(R, nil)
-	for _, v := range R {
-		diff = append(diff, v-meanRet)
-	}
-	sums := sum(diff)
-
-	return math.Abs(sums / float64(len(R)))
+// absRet is the absolute returns(directiion) of
+// an asset over a certain period
+func AbsRet(returns []float64) float64 {
+	return math.Abs(stat.Variance(returns, nil))
 }
 
 func EMA(x []float64) float64 {
@@ -88,7 +84,7 @@ func MACDV(x []float64, high, low, prevclose float64) float64 {
 	MACD := MACD(x, 12)
 
 	numerator := MACD * 100
-	return numerator / averageTrueRange(high, low, prevclose)
+	return numerator / AverageTrueRange(high, low, prevclose)
 }
 
 func MACDVs(close, highs, lows []float64) []float64 {
@@ -145,9 +141,23 @@ func min(input ...float64) float64 {
 	return min
 }
 
-func Returns(curcls, prevcls float64) float64 {
-	num := curcls - prevcls
+// It gives the close returns of an asset
+func Returns(currcls, prevcls float64) float64 {
+	num := currcls - prevcls
 	return num / prevcls
+}
+
+// It gives the close returns of an asset
+func ReturnsMult(closes []float64) []float64 {
+	multiReturn := make([]float64, 0, len(closes))
+	for index := range closes {
+		if index == 0 {
+			continue
+		}
+		ret := Returns(closes[index], closes[index-1])
+		multiReturn = append(multiReturn, ret)
+	}
+	return multiReturn
 }
 
 // returns quadratic variation of an asset of a given period
@@ -232,6 +242,8 @@ func UpRange(x []float64) []float64 {
 		return Rm
 	}
 */
+
+// A wrapper for stat.StdScore to return an Array of standard score
 func ZscoreCalc(x []float64, mean, stddev float64) []float64 {
 	ZScrArr := make([]float64, 0)
 	for _, v := range x {

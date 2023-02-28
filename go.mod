@@ -3,7 +3,7 @@ module github.com/arewabolu/trademath
 go 1.19
 
 require (
-	github.com/arewabolu/csvmanager v1.3.3
+	github.com/arewabolu/csvmanager v1.4.4
 	golang.org/x/net v0.6.0
 )
 
