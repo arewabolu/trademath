@@ -15,7 +15,7 @@ func TestMax(t *testing.T) {
 }
 
 func TestAggregate(t *testing.T) {
-	records, _ := csv.ReadCsv("./BTCUSDT-1h-2022-11.csv")
+	records, _ := csv.ReadCsv("./BTCUSDT-1h-2022-11.csv", true)
 	high := records.Col("high").Float()
 	//	open := records.Col("open").Float() //,,,
 
@@ -25,7 +25,7 @@ func TestAggregate(t *testing.T) {
 }
 
 func TestMeanDiff(t *testing.T) {
-	rd, _ := csv.ReadCsv("./csvfiles/MACD.csv")
+	rd, _ := csv.ReadCsv("./csvfiles/MACD.csv", true)
 	MACDV := rd.Col("MACDV").Float()
 	MACDVmean := stat.Mean(MACDV, nil)
 	up, down, _ := meanDiff(MACDVmean, MACDV)

@@ -26,6 +26,10 @@ func AbsRet(returns []float64) float64 {
 	return math.Abs(stat.Variance(returns, nil))
 }
 
+func Covariance(stockAReturn, AvgStockAReturn, stockBReturn, AvgStockBReturn float64, sampleSize int) float64 {
+	return ((stockAReturn - AvgStockAReturn) * (stockBReturn - AvgStockBReturn) / (float64(sampleSize) - 1))
+}
+
 func EMA(x []float64) float64 {
 	smoothingConstant := func() float64 {
 		denum := float64(len(x)) + 1
